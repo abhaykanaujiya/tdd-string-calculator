@@ -1,25 +1,36 @@
 import React from 'react';
+import { useStringCalculator } from '../../hook/useStringCalculator';
 import { Container, Input, Button, Result, Error } from './style';
 
-const StringCalculatorView = () => {
- 
+const StringCalculator = () => {
+  const {
+    input,
+    result,
+    error,
+    handleInputChange,
+    handleCalculate
+  } = useStringCalculator();
+
+  console.log(input,result,"res");
+  
   return (
     <Container>
       <h2>String Calculator</h2>
       <Input
         type="text"
-        value={""}
-        onChange={""}
+        value={input}
+        onChange={handleInputChange}
         placeholder="Enter numbers separated by commas"
       />
-      <Button >
+      <Button onClick={handleCalculate}>
         Calculate
       </Button>
+      {error && <Error>{error}</Error>}
       <Result>
-        <strong>Result:</strong> 
+        <strong>Result:</strong> {result}
       </Result>
     </Container>
   );
 };
 
-export default StringCalculatorView; 
+export default StringCalculator; 
