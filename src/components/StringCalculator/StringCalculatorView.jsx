@@ -20,7 +20,7 @@ const StringCalculator = () => {
         type="text"
         value={input}
         onChange={handleInputChange}
-        placeholder="Enter numbers separated by commas"
+        placeholder="Enter numbers (e.g., 1,2,3)"
       />
       <Button onClick={handleCalculate}>
         Calculate
