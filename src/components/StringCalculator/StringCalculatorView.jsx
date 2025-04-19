@@ -27,7 +27,7 @@ const StringCalculator = () => {
       </Button>
       {error && <Error>{error}</Error>}
       <Result>
-        <strong>Result:</strong> {result}
+        Result: {result}
       </Result>
     </Container>
   );

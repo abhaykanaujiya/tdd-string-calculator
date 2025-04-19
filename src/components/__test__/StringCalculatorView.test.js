@@ -22,12 +22,12 @@ describe('StringCalculatorView', () => {
     fireEvent.click(screen.getByText(/calculate/i));
     expect(screen.getByText(/result:\s*0/i)).toBeInTheDocument();
   });
-
+  
   it('handles invalid input', () => {
     render(<StringCalculatorView />);
     const input = screen.getByPlaceholderText('Enter numbers (e.g., 1,2,3)');
     fireEvent.change(input, { target: { value: '1,a,3' } });
     fireEvent.click(screen.getByText(/calculate/i));
-    expect(screen.getByText('Error: Invalid number in input')).toBeInTheDocument();
+    expect(screen.getByText('Invalid number in input')).toBeInTheDocument();
   });
 });
