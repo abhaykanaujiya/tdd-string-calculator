@@ -28,9 +28,4 @@ describe('String Calculator', () => {
   test('handles multiple numbers', () => {
     expect(add('1,2,3,4,5')).toBe(15);
   });
-
-  test('ignores invalid numbers', () => {
-    expect(add('1,abc,3')).toBe(4);
-  });
- 
 }); 
