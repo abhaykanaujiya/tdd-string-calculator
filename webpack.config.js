@@ -1,11 +1,7 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default {
+module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
@@ -13,9 +9,6 @@ export default {
     clean: true,
   },
   mode: "development",
-  experiments: {
-    topLevelAwait: true
-  },
   resolve: {
     extensions: [".js", ".jsx"],
   },
@@ -26,19 +19,6 @@ export default {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          options: {
-            presets: [
-              ["@babel/preset-env", {
-                "targets": {
-                  "node": "current"
-                },
-                "modules": "auto"
-              }],
-              ["@babel/preset-react", {
-                "runtime": "automatic"
-              }]
-            ]
-          }
         },
       },
     ],
